@@ -1,0 +1,28 @@
+﻿@model WebApplication7.Users
+
+@{
+    ViewBag.Title = "User Details";
+}
+
+<h2>User Details</h2>
+
+<div>
+    <h4>User ID:</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>@Html.DisplayNameFor(model => model.UserId)</dt>
+        <dd>@Html.DisplayFor(model => model.UserId)</dd>
+    </dl>
+
+    <h4>User Name:</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>@Html.DisplayNameFor(model => model.FullName)</dt>
+        <dd>@Html.DisplayFor(model => model.FullName)</dd>
+    </dl>
+</div>
+
+<p>
+    @Html.ActionLink("Edit", "Edit", "Users", new { id = Model.UserId }, null) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

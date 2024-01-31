@@ -1,0 +1,21 @@
+﻿@model WebApplication7.Questions
+
+@{
+    ViewBag.Title = "Question Details";
+}
+
+<h2>Question Details</h2>
+
+<div>
+    <h4>Question Text:</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>@Html.DisplayNameFor(model => model.QuestionText)</dt>
+        <dd>@Html.DisplayFor(model => model.QuestionText)</dd>
+    </dl>
+</div>
+
+<p>
+    @Html.ActionLink("Edit", "Edit", "Questions", new { id = Model.QuestionId }, null) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

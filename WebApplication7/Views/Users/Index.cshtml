@@ -1,0 +1,32 @@
+﻿
+@model IEnumerable<WebApplication7.Users>
+@{
+    ViewBag.Title = "Users";
+}
+
+<h2>Users</h2>
+
+<table class="table">
+    <tr>
+        <th>User ID</th>
+        <th>Full Name</th>
+        <th>Action</th>
+    </tr>
+
+    @foreach (var user in Model)
+    {
+        <tr>
+            <td>@user.UserId</td>
+            <td>@user.FullName</td>
+            <td>
+                @Html.ActionLink("Details", "Details", "Users", new { id = user.UserId }, null) |
+                @Html.ActionLink("Edit", "Edit", "Users", new { id = user.UserId }, null) |
+                @Html.ActionLink("Delete", "Delete", "Users", new { id = user.UserId }, null)
+            </td>
+        </tr>
+    }
+</table>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>

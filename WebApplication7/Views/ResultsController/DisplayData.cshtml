@@ -1,0 +1,21 @@
+﻿<!-- CollectUserResponses.cshtml -->
+@model WebApplication7.ViewModels.UserResponsesViewModel
+@{
+    ViewData["Title"] = "Collect User Responses";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+<form asp-action="DisplayData" asp-controller="ResultsController" method="post">
+    <label>Select a Question:</label>
+    <select asp-for="SelectedQuestionId" asp-items="new SelectList(Model.Questions, nameof(Question.Id), nameof(Question.Text))">
+        <option value="">Select a question</option>
+    </select>
+
+    <label>Your Answer:</label>
+    <input asp-for="UserAnswer" class="form-control" />
+
+    <!-- Add other form elements for additional properties in the view model -->
+
+    <button type="submit">Submit</button>
+</form>

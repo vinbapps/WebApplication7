@@ -1,0 +1,36 @@
+﻿@model IEnumerable<WebApplication7.UserResponses>
+
+@{
+    ViewBag.Title = "User Responses";
+}
+
+<h2>User Responses</h2>
+
+<table class="table">
+    <tr>
+        <th>User Response ID</th>
+        <th>User ID</th>
+        <th>Question ID</th>
+        <th>Answer ID</th>
+        <th>Action</th>
+    </tr>
+
+    @foreach (var response in Model)
+    {
+        <tr>
+            <td>@response.UserResponseId</td>
+            <td>@response.UserId</td>
+            <td>@response.QuestionId</td>
+            <td>@response.AnswerId</td>
+            <td>
+                @Html.ActionLink("Details", "Details", "UserResponses", new { id = response.UserResponseId }, null) |
+                @Html.ActionLink("Edit", "Edit", "UserResponses", new { id = response.UserResponseId }, null) |
+                @Html.ActionLink("Delete", "Delete", "UserResponses", new { id = response.UserResponseId }, null)
+            </td>
+        </tr>
+    }
+</table>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>

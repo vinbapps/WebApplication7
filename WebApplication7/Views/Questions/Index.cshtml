@@ -1,0 +1,32 @@
+﻿@model IEnumerable<WebApplication7.Questions>
+
+@{
+    ViewBag.Title = "Questions";
+}
+
+<h2>Questions</h2>
+
+<table class="table">
+    <tr>
+        <th>Question Text</th>
+        <th>Action</th>
+    </tr>
+
+    @foreach (var question in Model)
+    {
+        <tr>
+            <td>@question.QuestionText</td>
+            <td>
+                @Html.ActionLink("Details", "Details", "Questions", new { id = question.QuestionId }, null) |
+                @Html.ActionLink("Edit", "Edit", "Questions", new { id = question.QuestionId }, null) |
+                @Html.ActionLink("Delete", "Delete", "Questions", new { id = question.QuestionId }, null)
+
+
+            </td>
+        </tr>
+    }
+</table>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
